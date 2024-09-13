@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styled from "styled-components"
 import { Link, useNavigate } from "react-router-dom";
 import { FirebaseError } from "firebase/app";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -7,6 +6,7 @@ import { auth } from "../firebase";
 
 
 import { Form, Error, Input, Switcher, Title, Wrapper } from "../components/auth-components";
+import GithubBtn from "../components/github-btn";
 
 
 export default function LogIn() {
@@ -54,9 +54,10 @@ export default function LogIn() {
             <Input onChange={onChange} name="password" value={pass} placeholder="Password" type="password" required />
             <Input type="submit" value={isLoading ? "Loading..." : "Log In"} />
         </Form>
+        <GithubBtn />
         {error !== "" ? <Error>{error}</Error> : null}
         <Switcher>
-            Don't have an account?<Link to="/create-account">Create one &rarr; </Link>
+            Don't have an account? <Link to="/create-account">Create one &rarr; </Link>
         </Switcher>
     </Wrapper>
 }

@@ -4,6 +4,7 @@ import { auth } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { FirebaseError } from "firebase/app";
 import { Error, Input, Switcher, Title, Wrapper,Form } from "../components/auth-components";
+import GithubBtn from "../components/github-btn";
 
 
 
@@ -62,9 +63,11 @@ export default function CreateAccount() {
             <Input onChange={onChange} name="password" value={pass} placeholder="Password" type="password" required />
             <Input type="submit" value={isLoading ? "Loading..." : "Create Account"} />
         </Form>
+        <GithubBtn />
         {error !== "" ? <Error>{error}</Error> : null}
         <Switcher>
-            Alreadt hav account?<Link to="/login">Log in &rarr; </Link>
+            Already have account? <Link to="/login">Log in &rarr; </Link>
         </Switcher>
+
     </Wrapper>
 }
